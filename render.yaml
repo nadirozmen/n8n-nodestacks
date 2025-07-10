@@ -46,6 +46,10 @@ services:
         value: "*"
       - key: N8N_DISABLE_PRODUCTION_MAIN_API
         value: "true"
+      - key: N8N_BASIC_AUTH_ACTIVE
+        value: "false"
+      - key: N8N_DISABLE_UI
+        value: "false"
 
 databases:
   - name: n8n-db
