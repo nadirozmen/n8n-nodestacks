@@ -41,6 +41,10 @@ services:
       - key: N8N_PORT
         value: "5678"
 
+      # 🚫 User Management uitschakelen
+      - key: N8N_USER_MANAGEMENT_DISABLED
+        value: "true"
+
       # 🔒 Login uitschakelen (Cloudflare Access regelt toegang)
       - key: N8N_AUTH_EXCLUDE_ENDPOINTS
         value: "*"
