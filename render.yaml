@@ -4,7 +4,7 @@ services:
     runtime: image
     name: n8n-service
     image:
-      url: docker.io/n8nio/n8n:1.83.2
+      url: docker.io/n8nio/n8n:1.101.1
 
     envVars:
       # 🔐 Versleuteling van credentials in n8n
