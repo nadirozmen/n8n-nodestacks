@@ -41,11 +41,11 @@ services:
       - key: N8N_PORT
         value: "5678"
 
-      # 🚀 Task runners (nieuwe n8n architectuur)
-      - key: N8N_RUNNERS_ENABLED
+      # 🔒 Login uitschakelen (Cloudflare Access regelt toegang)
+      - key: N8N_AUTH_EXCLUDE_ENDPOINTS
+        value: "*"
+      - key: N8N_DISABLE_PRODUCTION_MAIN_API
         value: "true"
-
-      # ❌ Geen basic-auth: beveiligd via Cloudflare Access
 
 databases:
   - name: n8n-db
