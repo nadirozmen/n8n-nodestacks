@@ -41,6 +41,10 @@ services:
       - key: N8N_PORT
         value: "5678"
 
+      # 🚀 Task runners (nieuwe n8n architectuur)
+      - key: N8N_RUNNERS_ENABLED
+        value: "true"
+
       # ❌ Geen basic-auth: beveiligd via Cloudflare Access
 
 databases:
