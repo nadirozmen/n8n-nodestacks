@@ -41,20 +41,6 @@ services:
       - key: N8N_PORT
         value: "5678"
 
-      # 🚫 User Management uitschakelen
-      - key: N8N_USER_MANAGEMENT_DISABLED
-        value: "true"
-
-      # 🔒 Login uitschakelen (Cloudflare Access regelt toegang)
-      - key: N8N_AUTH_EXCLUDE_ENDPOINTS
-        value: "*"
-      - key: N8N_DISABLE_PRODUCTION_MAIN_API
-        value: "true"
-      - key: N8N_BASIC_AUTH_ACTIVE
-        value: "false"
-      - key: N8N_DISABLE_UI
-        value: "false"
-
 databases:
   - name: n8n-db
     plan: basic-256mb
