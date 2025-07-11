@@ -13,7 +13,7 @@ services:
 
       # Supabase database config
       - key: DB_TYPE
-        value: postgresdb
+        value: postgresdbxx
       - key: DB_POSTGRESDB_HOST
         value: supabase-host
       - key: DB_POSTGRESDB_PORT
@@ -26,16 +26,19 @@ services:
         value: supabase-password
       - key: DB_POSTGRESDB_SSL_REJECT_UNAUTHORIZED
         value: "false"
+
+      # Logging enabled
       - key: DB_LOGGING
         value: "true"
 
       # n8n Web config
       - key: WEBHOOK_URL
-        value: webhook-url
+        fromSecret: webhook-url
       - key: N8N_HOST
-        value: n8n-host
+        fromSecret: n8n-host
       - key: N8N_PORT
-        value: n8n-port
+        fromSecret: n8n-port
 
+      # Production environment
       - key: NODE_ENV
         value: production
