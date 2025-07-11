@@ -8,12 +8,13 @@ services:
       url: docker.io/n8nio/n8n:latest
 
     envVars:
+      # Encryptie
       - key: N8N_ENCRYPTION_KEY
         generateValue: true
 
       # Supabase database config
       - key: DB_TYPE
-        value: postgresdbxx
+        value: postgresdb
       - key: DB_POSTGRESDB_HOST
         value: supabase-host
       - key: DB_POSTGRESDB_PORT
@@ -27,8 +28,16 @@ services:
       - key: DB_POSTGRESDB_SSL_REJECT_UNAUTHORIZED
         value: "false"
 
-      # Logging enabled
+      # Fallback naar SQLite blokkeren
+      - key: DB_SQLITE_DATABASE
+        value: "/dev/null"
+
+      # Logging (voor debug)
       - key: DB_LOGGING
+        value: "true"
+      - key: DB_LOG_OUTPUT
+        value: "all"
+      - key: DB_LOGGING_ENABLED
         value: "true"
 
       # n8n Web config
@@ -39,6 +48,6 @@ services:
       - key: N8N_PORT
         fromSecret: n8n-port
 
-      # Production environment
+      # Omgevingsinstelling
       - key: NODE_ENV
         value: production
