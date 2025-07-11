@@ -16,15 +16,15 @@ services:
       - key: DB_TYPE
         value: postgresdb
       - key: DB_POSTGRESDB_HOST
-        value: supabase-host
+        value: db.nbhuimqlxwcgfmjzlsve.supabase.co
       - key: DB_POSTGRESDB_PORT
-        value: supabase-port
+        value: "5432"
       - key: DB_POSTGRESDB_DATABASE
-        value: supabase-name
+        value: postgres
       - key: DB_POSTGRESDB_USER
-        value: supabase-user
+        value: postgres
       - key: DB_POSTGRESDB_PASSWORD
-        value: supabase-password
+        value: CGnPktEKuultxzuX
       - key: DB_POSTGRESDB_SSL_REJECT_UNAUTHORIZED
         value: "false"
 
@@ -42,11 +42,11 @@ services:
 
       # n8n Web config
       - key: WEBHOOK_URL
-        fromSecret: webhook-url
+        value: https://n8n.nodestacks.com
       - key: N8N_HOST
-        fromSecret: n8n-host
+        value: n8n.nodestacks.com
       - key: N8N_PORT
-        fromSecret: n8n-port
+        value: "5678"
 
       # Omgevingsinstelling
       - key: NODE_ENV
