@@ -4,14 +4,12 @@ services:
     runtime: image
     name: n8n-service
     image:
-      url: docker.io/n8nio/n8n:1.101.1
+      url: docker.io/n8nio/n8n:latest
 
     envVars:
-      # 🔐 Versleuteling van credentials in n8n
       - key: N8N_ENCRYPTION_KEY
         generateValue: true
 
-      # 🧩 PostgreSQL configuratie
       - key: DB_TYPE
         value: postgresdb
       - key: DB_POSTGRESDB_DATABASE
@@ -33,7 +31,6 @@ services:
       - key: DB_POSTGRESDB_SSL_REJECT_UNAUTHORIZED
         value: "false"
 
-      # 🌐 Domeininstellingen
       - key: WEBHOOK_URL
         value: "https://n8n.nodestacks.com"
       - key: N8N_HOST
