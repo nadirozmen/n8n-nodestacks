@@ -10,7 +10,32 @@ services:
     envVars:
       - key: N8N_ENCRYPTION_KEY
         generateValue: true
+
+      # Supabase database config
+      - key: DB_TYPE
+        value: postgresdb
+      - key: DB_POSTGRESDB_HOST
+        value: supabase-host
+      - key: DB_POSTGRESDB_PORT
+        value: supabase-port
+      - key: DB_POSTGRESDB_DATABASE
+        value: supabase-name
+      - key: DB_POSTGRESDB_USER
+        value: supabase-user
+      - key: DB_POSTGRESDB_PASSWORD
+        value: supabase-password
+      - key: DB_POSTGRESDB_SSL_REJECT_UNAUTHORIZED
+        value: "false"
       - key: DB_LOGGING
         value: "true"
+
+      # n8n Web config
+      - key: WEBHOOK_URL
+        fromSecret: webhook-url
+      - key: N8N_HOST
+        fromSecret: n8n-host
+      - key: N8N_PORT
+        fromSecret: n8n-port
+
       - key: NODE_ENV
         value: production
