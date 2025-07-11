@@ -12,33 +12,31 @@ services:
       - key: N8N_ENCRYPTION_KEY
         generateValue: true
 
-      # Supabase database config
+      # Render PostgreSQL database config
       - key: DB_TYPE
         value: postgresdb
       - key: DB_POSTGRESDB_HOST
-        value: db.nbhuimqlxwcgfmjzlsve.supabase.co
+        fromDatabase:
+          name: n8n-db
+          property: host
       - key: DB_POSTGRESDB_PORT
-        value: "5432"
+        fromDatabase:
+          name: n8n-db
+          property: port
       - key: DB_POSTGRESDB_DATABASE
-        value: postgres
+        fromDatabase:
+          name: n8n-db
+          property: database
       - key: DB_POSTGRESDB_USER
-        value: postgres
+        fromDatabase:
+          name: n8n-db
+          property: user
       - key: DB_POSTGRESDB_PASSWORD
-        value: DBEXgT9aIXyUxqfL
+        fromDatabase:
+          name: n8n-db
+          property: password
       - key: DB_POSTGRESDB_SSL_REJECT_UNAUTHORIZED
         value: "false"
-
-      # Fallback naar SQLite blokkeren
-      - key: DB_SQLITE_DATABASE
-        value: "/dev/null"
-
-      # Logging (voor debug)
-      - key: DB_LOGGING
-        value: "true"
-      - key: DB_LOG_OUTPUT
-        value: "all"
-      - key: DB_LOGGING_ENABLED
-        value: "true"
 
       # n8n Web config
       - key: WEBHOOK_URL
@@ -48,6 +46,6 @@ services:
       - key: N8N_PORT
         value: "5678"
 
-      # Omgevingsinstelling
+      # Productieomgeving
       - key: NODE_ENV
         value: production
