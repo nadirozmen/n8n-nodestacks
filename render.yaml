@@ -10,7 +10,7 @@ services:
       - key: N8N_ENCRYPTION_KEY
         generateValue: true
 
-      # Supabase database (via Render Secrets)
+      # Supabase database config via Render Secrets
       - key: DB_TYPE
         value: postgresdb
       - key: DB_POSTGRESDB_HOST
@@ -26,7 +26,6 @@ services:
       - key: DB_POSTGRESDB_SSL_REJECT_UNAUTHORIZED
         value: "false"
 
-      # n8n Webhook config
       - key: WEBHOOK_URL
         value: "https://n8n.nodestacks.com"
       - key: N8N_HOST
