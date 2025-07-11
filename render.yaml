@@ -10,6 +10,10 @@ services:
     envVars:
       - key: N8N_ENCRYPTION_KEY
         generateValue: true
+      - key: DB_LOGGING
+        value: "true"
+      - key: NODE_ENV
+        value: production
 
       # Supabase database config via secrets
       - key: DB_TYPE
