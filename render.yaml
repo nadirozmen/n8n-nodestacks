@@ -10,34 +10,26 @@ services:
       - key: N8N_ENCRYPTION_KEY
         generateValue: true
 
+      # Supabase database (via Render Secrets)
       - key: DB_TYPE
         value: postgresdb
-      - key: DB_POSTGRESDB_DATABASE
-        fromDatabase:
-          name: n8n-db
-          property: database
       - key: DB_POSTGRESDB_HOST
-        fromDatabase:
-          name: n8n-db
-          property: host
-      - key: DB_POSTGRESDB_PASSWORD
-        fromDatabase:
-          name: n8n-db
-          property: password
+        fromSecret: supabase-host
+      - key: DB_POSTGRESDB_PORT
+        fromSecret: supabase-port
+      - key: DB_POSTGRESDB_DATABASE
+        fromSecret: supabase-name
       - key: DB_POSTGRESDB_USER
-        fromDatabase:
-          name: n8n-db
-          property: user
+        fromSecret: supabase-user
+      - key: DB_POSTGRESDB_PASSWORD
+        fromSecret: supabase-password
       - key: DB_POSTGRESDB_SSL_REJECT_UNAUTHORIZED
         value: "false"
 
+      # n8n Webhook config
       - key: WEBHOOK_URL
         value: "https://n8n.nodestacks.com"
       - key: N8N_HOST
         value: "n8n.nodestacks.com"
       - key: N8N_PORT
         value: "5678"
-
-databases:
-  - name: n8n-db
-    plan: basic-256mb
