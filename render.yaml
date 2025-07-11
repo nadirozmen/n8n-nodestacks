@@ -31,11 +31,11 @@ services:
 
       # n8n Web config
       - key: WEBHOOK_URL
-        fromSecret: webhook-url
+        value: webhook-url
       - key: N8N_HOST
-        fromSecret: n8n-host
+        value: n8n-host
       - key: N8N_PORT
-        fromSecret: n8n-port
+        value: n8n-port
 
       - key: NODE_ENV
         value: production
