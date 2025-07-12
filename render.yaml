@@ -8,6 +8,7 @@ services:
       url: docker.io/n8nio/n8n:latest
 
     envVars:
+      # Algemene settings
       - key: GENERIC_TIMEZONE
         value: Europe/Amsterdam
       - key: N8N_ENCRYPTION_KEY
@@ -16,10 +17,8 @@ services:
         value: "true"
       - key: N8N_RUNNERS_ENABLED
         value: "true"
-      - key: PORT
-        value: "5678"
 
-      # Supabase database config
+      # Database settings
       - key: DB_TYPE
         value: postgresdb
       - key: DB_POSTGRESDB_HOST
@@ -35,10 +34,42 @@ services:
       - key: DB_POSTGRESDB_SCHEMA
         value: public
 
-      # n8n Web config
+      # Webconfig alleen voor web-service
       - key: N8N_HOST
         value: n8n.nodestacks.com
       - key: N8N_PORT
         value: "5678"
       - key: WEBHOOK_URL
         value: https://n8n.nodestacks.com
+
+  - type: worker
+    plan: standard
+    name: n8n-runner
+    runtime: image
+    image:
+      url: docker.io/n8nio/n8n:latest
+
+    envVars:
+      # Nodig voor decryptie
+      - key: N8N_ENCRYPTION_KEY
+        value: 7R2Wm4BQp3y+zCGBKb7yWcM0XcnL6E6IYpQmivHMYaI=
+      - key: N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS
+        value: "true"
+      - key: N8N_RUNNERS_ENABLED
+        value: "true"
+      
+      # Database settings
+      - key: DB_TYPE
+        value: postgresdb
+      - key: DB_POSTGRESDB_HOST
+        value: db.nbhuimqlxwcgfmjzlsve.supabase.co
+      - key: DB_POSTGRESDB_PORT
+        value: "5432"
+      - key: DB_POSTGRESDB_DATABASE
+        value: postgres
+      - key: DB_POSTGRESDB_USER
+        value: postgres
+      - key: DB_POSTGRESDB_PASSWORD
+        value: CGnPktEKuultxzuX
+      - key: DB_POSTGRESDB_SCHEMA
+        value: public
