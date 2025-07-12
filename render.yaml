@@ -20,27 +20,27 @@ services:
 
       # Database settings
       - key: DB_TYPE
-        fromEnvVar: DB_TYPE
+        value: test
       - key: DB_POSTGRESDB_HOST
-        fromEnvVar: DB_POSTGRESDB_HOST
+        value: test
       - key: DB_POSTGRESDB_PORT
-        fromEnvVar: DB_POSTGRESDB_PORT
+        value: test
       - key: DB_POSTGRESDB_DATABASE
-        fromEnvVar: DB_POSTGRESDB_DATABASE
+        value: test
       - key: DB_POSTGRESDB_USER
-        fromEnvVar: DB_POSTGRESDB_USER
+        value: test
       - key: DB_POSTGRESDB_PASSWORD
-        fromEnvVar: DB_POSTGRESDB_PASSWORD
+        value: test
       - key: DB_POSTGRESDB_SCHEMA
-        fromEnvVar: DB_POSTGRESDB_SCHEMA
+        value: test
 
       # Webconfig alleen voor web-service
       - key: N8N_HOST
-        fromEnvVar: N8N_HOST
+        value: test
       - key: N8N_PORT
-        fromEnvVar: N8N_PORT
+        value: test
       - key: WEBHOOK_URL
-        fromEnvVar: WEBHOOK_URL
+        value: test
 
   - type: worker
     plan: standard
@@ -51,9 +51,10 @@ services:
       url: docker.io/n8nio/n8n:latest
 
     envVars:
-      # Nodig voor decryptie
+      - key: GENERIC_TIMEZONE
+        value: Europe/Amsterdam
       - key: N8N_ENCRYPTION_KEY
-        fromEnvVar: N8N_ENCRYPTION_KEY
+        value: test
       - key: N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS
         value: "true"
       - key: N8N_RUNNERS_ENABLED
@@ -61,16 +62,16 @@ services:
       
       # Database settings
       - key: DB_TYPE
-        fromEnvVar: DB_TYPE
+        value: test
       - key: DB_POSTGRESDB_HOST
-        fromEnvVar: DB_POSTGRESDB_HOST
+        value: test
       - key: DB_POSTGRESDB_PORT
-        fromEnvVar: DB_POSTGRESDB_PORT
+        value: test
       - key: DB_POSTGRESDB_DATABASE
-        fromEnvVar: DB_POSTGRESDB_DATABASE
+        value: test
       - key: DB_POSTGRESDB_USER
-        fromEnvVar: DB_POSTGRESDB_USER
+        value: test
       - key: DB_POSTGRESDB_PASSWORD
-        fromEnvVar: DB_POSTGRESDB_PASSWORD
+        value: test
       - key: DB_POSTGRESDB_SCHEMA
-        fromEnvVar: DB_POSTGRESDB_SCHEMA
+        value: test
