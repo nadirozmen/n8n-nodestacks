@@ -8,9 +8,16 @@ services:
       url: docker.io/n8nio/n8n:latest
 
     envVars:
-      # Encryptie
+      - key: GENERIC_TIMEZONE
+        value: Europe/Amsterdam
       - key: N8N_ENCRYPTION_KEY
-        generateValue: true
+        value: 7R2Wm4BQp3y+zCGBKb7yWcM0XcnL6E6IYpQmivHMYaI=
+      - key: N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS
+        value: "true"
+      - key: N8N_RUNNERS_ENABLED
+        value: "true"
+      - key: PORT
+        value: "5678"
 
       # Supabase database config
       - key: DB_TYPE
@@ -29,9 +36,9 @@ services:
         value: public
 
       # n8n Web config
-      - key: WEBHOOK_URL
-        value: https://n8n.nodestacks.com
       - key: N8N_HOST
         value: n8n.nodestacks.com
       - key: N8N_PORT
         value: "5678"
+      - key: WEBHOOK_URL
+        value: https://n8n.nodestacks.com
