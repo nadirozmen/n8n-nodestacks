@@ -1,75 +1,24 @@
 services:
   - type: web
-    plan: standard
-    runtime: image
     name: n8n-service
+    plan: standard
     region: frankfurt
+    runtime: image
     image:
       url: docker.io/n8nio/n8n:latest
-
     envVars:
       - fromGroup: n8n-evn-var
       - key: GENERIC_TIMEZONE
         value: Europe/Amsterdam
-      - key: N8N_ENCRYPTION_KEY
-        fromEnvVar: N8N_ENCRYPTION_KEY
-      - key: N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS
-        value: "true"
-      - key: N8N_RUNNERS_ENABLED
-        value: "true"
-
-      - key: DB_TYPE
-        fromEnvVar: DB_TYPE
-      - key: DB_POSTGRESDB_HOST
-        fromEnvVar: DB_POSTGRESDB_HOST
-      - key: DB_POSTGRESDB_PORT
-        fromEnvVar: DB_POSTGRESDB_PORT
-      - key: DB_POSTGRESDB_DATABASE
-        fromEnvVar: DB_POSTGRESDB_DATABASE
-      - key: DB_POSTGRESDB_USER
-        fromEnvVar: DB_POSTGRESDB_USER
-      - key: DB_POSTGRESDB_PASSWORD
-        fromEnvVar: DB_POSTGRESDB_PASSWORD
-      - key: DB_POSTGRESDB_SCHEMA
-        fromEnvVar: DB_POSTGRESDB_SCHEMA
-
-      - key: N8N_HOST
-        fromEnvVar: N8N_HOST
-      - key: N8N_PORT
-        fromEnvVar: N8N_PORT
-      - key: WEBHOOK_URL
-        fromEnvVar: WEBHOOK_URL
 
   - type: worker
-    plan: standard
     name: n8n-runner
+    plan: standard
     region: frankfurt
     runtime: image
     image:
       url: docker.io/n8nio/n8n:latest
-
     envVars:
       - fromGroup: n8n-evn-var
       - key: GENERIC_TIMEZONE
         value: Europe/Amsterdam
-      - key: N8N_ENCRYPTION_KEY
-        fromEnvVar: N8N_ENCRYPTION_KEY
-      - key: N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS
-        value: "true"
-      - key: N8N_RUNNERS_ENABLED
-        value: "true"
-      
-      - key: DB_TYPE
-        fromEnvVar: DB_TYPE
-      - key: DB_POSTGRESDB_HOST
-        fromEnvVar: DB_POSTGRESDB_HOST
-      - key: DB_POSTGRESDB_PORT
-        fromEnvVar: DB_POSTGRESDB_PORT
-      - key: DB_POSTGRESDB_DATABASE
-        fromEnvVar: DB_POSTGRESDB_DATABASE
-      - key: DB_POSTGRESDB_USER
-        fromEnvVar: DB_POSTGRESDB_USER
-      - key: DB_POSTGRESDB_PASSWORD
-        fromEnvVar: DB_POSTGRESDB_PASSWORD
-      - key: DB_POSTGRESDB_SCHEMA
-        fromEnvVar: DB_POSTGRESDB_SCHEMA
