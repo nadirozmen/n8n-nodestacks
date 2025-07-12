@@ -45,6 +45,7 @@ services:
   - type: worker
     plan: standard
     name: n8n-runner
+    region: frankfurt
     runtime: image
     image:
       url: docker.io/n8nio/n8n:latest
