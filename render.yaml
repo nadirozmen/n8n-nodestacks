@@ -8,39 +8,36 @@ services:
       url: docker.io/n8nio/n8n:latest
 
     envVars:
-      # Algemene settings
       - key: GENERIC_TIMEZONE
         value: Europe/Amsterdam
       - key: N8N_ENCRYPTION_KEY
-        value: test
+        fromEnvVar: N8N_ENCRYPTION_KEY
       - key: N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS
         value: "true"
       - key: N8N_RUNNERS_ENABLED
         value: "true"
 
-      # Database settings
       - key: DB_TYPE
-        value: test
+        fromEnvVar: DB_TYPE
       - key: DB_POSTGRESDB_HOST
-        value: test
+        fromEnvVar: DB_POSTGRESDB_HOST
       - key: DB_POSTGRESDB_PORT
-        value: test
+        fromEnvVar: DB_POSTGRESDB_PORT
       - key: DB_POSTGRESDB_DATABASE
-        value: test
+        fromEnvVar: DB_POSTGRESDB_DATABASE
       - key: DB_POSTGRESDB_USER
-        value: test
+        fromEnvVar: DB_POSTGRESDB_USER
       - key: DB_POSTGRESDB_PASSWORD
-        value: test
+        fromEnvVar: DB_POSTGRESDB_PASSWORD
       - key: DB_POSTGRESDB_SCHEMA
-        value: test
+        fromEnvVar: DB_POSTGRESDB_SCHEMA
 
-      # Webconfig alleen voor web-service
       - key: N8N_HOST
-        value: test
+        fromEnvVar: N8N_HOST
       - key: N8N_PORT
-        value: test
+        fromEnvVar: N8N_PORT
       - key: WEBHOOK_URL
-        value: test
+        fromEnvVar: WEBHOOK_URL
 
   - type: worker
     plan: standard
@@ -54,24 +51,23 @@ services:
       - key: GENERIC_TIMEZONE
         value: Europe/Amsterdam
       - key: N8N_ENCRYPTION_KEY
-        value: test
+        fromEnvVar: N8N_ENCRYPTION_KEY
       - key: N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS
         value: "true"
       - key: N8N_RUNNERS_ENABLED
         value: "true"
       
-      # Database settings
       - key: DB_TYPE
-        value: test
+        fromEnvVar: DB_TYPE
       - key: DB_POSTGRESDB_HOST
-        value: test
+        fromEnvVar: DB_POSTGRESDB_HOST
       - key: DB_POSTGRESDB_PORT
-        value: test
+        fromEnvVar: DB_POSTGRESDB_PORT
       - key: DB_POSTGRESDB_DATABASE
-        value: test
+        fromEnvVar: DB_POSTGRESDB_DATABASE
       - key: DB_POSTGRESDB_USER
-        value: test
+        fromEnvVar: DB_POSTGRESDB_USER
       - key: DB_POSTGRESDB_PASSWORD
-        value: test
+        fromEnvVar: DB_POSTGRESDB_PASSWORD
       - key: DB_POSTGRESDB_SCHEMA
-        value: test
+        fromEnvVar: DB_POSTGRESDB_SCHEMA
