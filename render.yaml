@@ -12,7 +12,7 @@ services:
       - key: GENERIC_TIMEZONE
         value: Europe/Amsterdam
       - key: N8N_ENCRYPTION_KEY
-        fromEnvVar: N8N_ENCRYPTION_KEY
+        value: test
       - key: N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS
         value: "true"
       - key: N8N_RUNNERS_ENABLED
