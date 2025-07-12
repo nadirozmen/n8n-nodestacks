@@ -30,7 +30,7 @@ services:
       - key: DB_POSTGRESDB_USER
         value: postgres
       - key: DB_POSTGRESDB_PASSWORD
-        value: CGnPktEKuultxzuX
+        value: yLxgoOkivMNRpSZG
       - key: DB_POSTGRESDB_SCHEMA
         value: public
 
@@ -70,6 +70,6 @@ services:
       - key: DB_POSTGRESDB_USER
         value: postgres
       - key: DB_POSTGRESDB_PASSWORD
-        value: CGnPktEKuultxzuX
+        value: yLxgoOkivMNRpSZG
       - key: DB_POSTGRESDB_SCHEMA
         value: public
