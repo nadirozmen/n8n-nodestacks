@@ -27,30 +27,6 @@ services:
         value: CGnPktEKuultxzuX
       - key: DB_POSTGRESDB_SCHEMA
         value: public
-      - key: DB_POSTGRESDB_SSL_ENABLED
-        value: "true"
-      - key: DB_POSTGRESDB_SSL_REJECT_UNAUTHORIZED
-        value: "false"
-
-      # Optioneel: voor betrouwbaardere connectie & debug
-      - key: DB_POSTGRESDB_POOL_SIZE
-        value: "5"
-      - key: DB_POSTGRESDB_CONNECTION_TIMEOUT
-        value: "20000"
-      - key: DB_POSTGRESDB_IDLE_CONNECTION_TIMEOUT
-        value: "30000"
-
-      # Fallback naar SQLite blokkeren
-      - key: DB_SQLITE_DATABASE
-        value: "/dev/null"
-
-      # Logging (voor debug)
-      - key: DB_LOGGING
-        value: "true"
-      - key: DB_LOG_OUTPUT
-        value: "all"
-      - key: DB_LOGGING_ENABLED
-        value: "true"
 
       # n8n Web config
       - key: WEBHOOK_URL
@@ -59,7 +35,3 @@ services:
         value: n8n.nodestacks.com
       - key: N8N_PORT
         value: "5678"
-
-      # Omgevingsinstelling
-      - key: NODE_ENV
-        value: production
