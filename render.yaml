@@ -8,6 +8,7 @@ services:
       url: docker.io/n8nio/n8n:latest
 
     envVars:
+      - fromGroup: n8n-evn-var
       - key: GENERIC_TIMEZONE
         value: Europe/Amsterdam
       - key: N8N_ENCRYPTION_KEY
@@ -48,6 +49,7 @@ services:
       url: docker.io/n8nio/n8n:latest
 
     envVars:
+      - fromGroup: n8n-evn-var
       - key: GENERIC_TIMEZONE
         value: Europe/Amsterdam
       - key: N8N_ENCRYPTION_KEY
