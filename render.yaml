@@ -12,7 +12,7 @@ services:
       - key: GENERIC_TIMEZONE
         value: Europe/Amsterdam
       - key: N8N_ENCRYPTION_KEY
-        value: 7R2Wm4BQp3y+zCGBKb7yWcM0XcnL6E6IYpQmivHMYaI=
+        fromEnvVar: N8N_ENCRYPTION_KEY
       - key: N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS
         value: "true"
       - key: N8N_RUNNERS_ENABLED
@@ -20,27 +20,27 @@ services:
 
       # Database settings
       - key: DB_TYPE
-        value: postgresdb
+        fromEnvVar: DB_TYPE
       - key: DB_POSTGRESDB_HOST
-        value: db.nbhuimqlxwcgfmjzlsve.supabase.co
+        fromEnvVar: DB_POSTGRESDB_HOST
       - key: DB_POSTGRESDB_PORT
-        value: "5432"
+        fromEnvVar: DB_POSTGRESDB_PORT
       - key: DB_POSTGRESDB_DATABASE
-        value: postgres
+        fromEnvVar: DB_POSTGRESDB_DATABASE
       - key: DB_POSTGRESDB_USER
-        value: postgres
+        fromEnvVar: DB_POSTGRESDB_USER
       - key: DB_POSTGRESDB_PASSWORD
-        value: yLxgoOkivMNRpSZG
+        fromEnvVar: DB_POSTGRESDB_PASSWORD
       - key: DB_POSTGRESDB_SCHEMA
-        value: public
+        fromEnvVar: DB_POSTGRESDB_SCHEMA
 
       # Webconfig alleen voor web-service
       - key: N8N_HOST
-        value: n8n.nodestacks.com
+        fromEnvVar: N8N_HOST
       - key: N8N_PORT
-        value: "5678"
+        fromEnvVar: N8N_PORT
       - key: WEBHOOK_URL
-        value: https://n8n.nodestacks.com
+        fromEnvVar: WEBHOOK_URL
 
   - type: worker
     plan: standard
@@ -52,7 +52,7 @@ services:
     envVars:
       # Nodig voor decryptie
       - key: N8N_ENCRYPTION_KEY
-        value: 7R2Wm4BQp3y+zCGBKb7yWcM0XcnL6E6IYpQmivHMYaI=
+        fromEnvVar: N8N_ENCRYPTION_KEY
       - key: N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS
         value: "true"
       - key: N8N_RUNNERS_ENABLED
@@ -60,16 +60,16 @@ services:
       
       # Database settings
       - key: DB_TYPE
-        value: postgresdb
+        fromEnvVar: DB_TYPE
       - key: DB_POSTGRESDB_HOST
-        value: db.nbhuimqlxwcgfmjzlsve.supabase.co
+        fromEnvVar: DB_POSTGRESDB_HOST
       - key: DB_POSTGRESDB_PORT
-        value: "5432"
+        fromEnvVar: DB_POSTGRESDB_PORT
       - key: DB_POSTGRESDB_DATABASE
-        value: postgres
+        fromEnvVar: DB_POSTGRESDB_DATABASE
       - key: DB_POSTGRESDB_USER
-        value: postgres
+        fromEnvVar: DB_POSTGRESDB_USER
       - key: DB_POSTGRESDB_PASSWORD
-        value: yLxgoOkivMNRpSZG
+        fromEnvVar: DB_POSTGRESDB_PASSWORD
       - key: DB_POSTGRESDB_SCHEMA
-        value: public
+        fromEnvVar: DB_POSTGRESDB_SCHEMA
